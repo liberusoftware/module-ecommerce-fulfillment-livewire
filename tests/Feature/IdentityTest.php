@@ -64,6 +64,16 @@ it('carries no record identifier in any public surface', function () use ($compo
 
     foreach ($components() as $component) {
         foreach ($ours($component) as $property) {
+            // Public only, because public is what a surface means here: Livewire
+            // sends every public property to the browser and reads it back on the
+            // next request. A private one never leaves the server — and the
+            // resolved order id is deliberately private for exactly that reason,
+            // since it is the thing the ownership question *returns* rather than
+            // anything a client could hand in.
+            if (! $property->isPublic()) {
+                continue;
+            }
+
             if (preg_match('/(^id$|Id$|customer|store|team)/i', $property->getName()) === 1) {
                 $found[] = $component.'::$'.$property->getName();
             }
