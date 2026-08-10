@@ -1,0 +1,37 @@
+{
+    "$schema": "https://schemas.liberu.dev/module/v1.json",
+    "name": "ecommerce-fulfillment-livewire",
+    "display_name": "Fulfillment Livewire",
+    "description": "Livewire 4 storefront parcel tracking presenting the shipments owned by liberusoftware/ecommerce-fulfillment: one order's parcels, on as many carriers and as many days as it took, progress counted off the domain's own reservation and dispatch counters, and nothing on the page that writes.",
+    "version": "0.1.0",
+    "category": "presentation",
+    "provider": "Liberu\\Ecommerce\\Fulfillment\\Livewire\\FulfillmentLivewireServiceProvider",
+    "requires": {
+        "php": "^8.5",
+        "laravel": "^13.0",
+        "packages": {
+            "liberusoftware/ecommerce-fulfillment": "^0.1"
+        }
+    },
+    "capabilities": [
+        "ecommerce.fulfillment.livewire"
+    ],
+    "default_enabled": false,
+    "features": [
+        "A shopper's parcels for one of their own orders, and nobody else's",
+        "An order addressed by its public number, never by an incrementing id",
+        "Ownership answered by the deployment, and refused until it is",
+        "Somebody else's order number answered exactly as one that does not exist",
+        "A signed-out visitor invited to sign in rather than given a 404 to read",
+        "Many parcels per order, on many carriers, at many times",
+        "Progress counted from the reservation and dispatch counters, never a status word",
+        "Only the four parcel states the domain publishes are ever rendered",
+        "No cancellation, no void, and a refused return pointed at the returns route",
+        "A tracking number shown to the parcel's owner and put nowhere else",
+        "A carrier tracking link built from host configuration, never a pattern this package knows",
+        "No carrier name and no address on the internet anywhere in the package",
+        "Read-only: every public property locked and no action that writes",
+        "A live region for the one thing that changes, and a labelled control to change it",
+        "Theme-overridable views, translations and configuration"
+    ]
+}
